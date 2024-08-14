@@ -48,6 +48,13 @@ fn watchdog(cmd: &str, cmd_args: &Vec<String>, restart_delay: u64, rx: Receiver<
                         child.kill().expect("Command wasn't running");
                         return;
                     }
+                    "/rd" => {
+                        println!("Restarting command with delay {} seconds...", restart_delay);
+                        // Wait for the specified delay before restarting
+                        thread::sleep(Duration::from_secs(restart_delay));
+                        child.kill().expect("Command wasn't running");
+                        break;
+                    }
                     _ => {}
                 }
             }
