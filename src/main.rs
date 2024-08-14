@@ -1,6 +1,6 @@
 use std::env;
 use std::io::{self, Write};
-use std::process::{Command};
+use std::process::Command;
 use std::sync::mpsc::{channel, Receiver, Sender};
 use std::thread;
 use std::time::Duration;
